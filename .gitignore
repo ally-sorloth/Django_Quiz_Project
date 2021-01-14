@@ -88,6 +88,7 @@ venv/
 ENV/
 .vscode
 qenv2/
+qenv3/
 # Spyder project settings
 .spyderproject
 .spyproject
