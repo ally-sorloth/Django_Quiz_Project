@@ -10,10 +10,14 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
+    @property
+    def quiz_count(self):
+        return self.quiz_set.count()
+
 
 class Quiz(models.Model):
     title = models.CharField(max_length=100, verbose_name="Quiz Title")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -21,6 +25,10 @@ class Quiz(models.Model):
 
     class Meta:
         verbose_name_plural = "Quizzes"
+
+    @property
+    def question_count(self):
+        return self.question_set.count()
 
 
 class Update(models.Model):
@@ -54,5 +62,4 @@ class Answer(Update):
 
     def __str__(self):
         return self.answer_text
-
 # Create your models here.
