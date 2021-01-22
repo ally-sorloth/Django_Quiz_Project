@@ -23,7 +23,7 @@ class CategoryDetailSerializer(serializers.ModelSerializer):
         
 class AnswerSerializer(serializers.ModelSerializer):  
     class Meta:
-        moedel = Answer
+        model = Answer
         fields = (
             "answer_text",
             "is_right",
@@ -33,7 +33,7 @@ class QuestionSerializer(serializers.ModelSerializer):
     difficulty = serializers.SerializerMethodField()
     
     class Meta:
-        moedel = Question
+        model = Question
         fields = (
             "title",
             "answer",
